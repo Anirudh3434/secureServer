@@ -1,5 +1,5 @@
 import Router from "express";
-import { handleBroadcastNotification, singleNotificationHandler } from "../controller/notify.controller.js";
+import { handleBroadcastNotification, singleNotificationHandler, MessageHandler } from "../controller/notify.controller.js";
 
 const router = Router();
 
@@ -11,6 +11,11 @@ router.route("/promotion").post((req, res) => {
    handleBroadcastNotification(res, 'promotion', 'Promotion Alert', 'Check out our latest promotion!')
 });
 
+router.route('/application_status').post((req, res) =>
+  singleNotificationHandler(req, res, 'Application Update', 'Your application at ABC Corp is under review.')
+);
+
+
 router.route('/profile-viewed').post((req, res) =>
     singleNotificationHandler(req, res, 'Your Profile was Viewed', 'Your profile was viewed')
   );
@@ -20,8 +25,14 @@ router.route('/interview-reminder').post((req, res) =>
   );
   
 router.route('/offer-letter').post((req, res) =>
-    singleNotificationHandler(req, res, 'Offer Letter Received', "Congratulations! You've received an offer.")
+    singleNotificationHandler(req, res, 'Offer Letter', '')
 );
+
+router.route('/message').post((req, res) =>
+    MessageHandler(req, res)
+  );
+
+
      
 
 export default router;

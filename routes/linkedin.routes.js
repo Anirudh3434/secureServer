@@ -6,10 +6,10 @@ import jwksClient from "jwks-rsa";
 const router = Router();
 
 // Configuration - these should be in environment variables
-const CLIENT_ID = process.env.LINKEDIN_CLIENT_ID;
-const CLIENT_SECRET = process.env.LINKEDIN_CLIENT_SECRET;
-const REDIRECT_URI = process.env.LINKEDIN_REDIRECT_URI;
-const APP_SCHEME = process.env.APP_SCHEME || "yourapp";
+const CLIENT_ID = '86pg9onlum0hah';
+const CLIENT_SECRET = 'WPL_AP1.9BuYogv2pcEsswsG.PdCw5Q==';
+const REDIRECT_URI = 'https://devcrm20.abacasys.com:9100/linkedin/callback';
+const APP_SCHEME = "myapp"
 
 
 const client = jwksClient({
